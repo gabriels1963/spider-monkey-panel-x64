@@ -207,7 +207,7 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// SCRIPT
+// TEXT
 //
 
 IDR_DEFAULT_SCRIPT          TEXT "default_script.js"
@@ -221,5 +221,5 @@ IDR_CFG_DEFAULT    TEXT "cfgDefault.cfg"
 IDR_CFG_RUBY_BLUE  TEXT "cfgRubyBlue.cfg"
 
 IDR_TYPELIB TYPELIB "foo_spider_monkey_panel.tlb"
-#endif    // English (United States) resources
+#endif    // English (United Kingdom) resources
 /////////////////////////////////////////////////////////////////////////////
