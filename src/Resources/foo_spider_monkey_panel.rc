@@ -3,7 +3,7 @@
 #pragma code_page(65001)
 
 #include "resource.h"
-#include <atlres.h>
+#include <winres.h>
 
 /////////////////////////////////////////////////////////////////////////////
 // English (United Kingdom) resources
@@ -40,7 +40,7 @@ BEGIN
     DEFPUSHBUTTON   "OK",IDOK,284,290,50,14
     PUSHBUTTON      "Apply",IDAPPLY,338,290,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,392,290,50,14
-    PUSHBUTTON      "Help",ID_HELP,7,290,50,14
+    PUSHBUTTON      "Help",IDC_BTN_HELP,7,290,50,14
 END
 
 IDD_DIALOG_INPUT DIALOGEX 0, 0, 239, 68
