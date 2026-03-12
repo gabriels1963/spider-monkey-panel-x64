@@ -85,6 +85,7 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComUtils\com_destruction_handler.cpp" />
     <ClCompile Include="ComUtils\drag_image.cpp" />
     <ClCompile Include="ComUtils\drag_utils.cpp" />
@@ -92,11 +93,14 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClCompile Include="ComUtils\drop_target_impl.cpp" />
     <ClCompile Include="ComUtils\file_drop_target.cpp" />
     <ClCompile Include="ComUtils\track_drop_target.cpp" />
-    <ClCompile Include="config\advanced_config.cpp" />
-    <ClCompile Include="config\delayed_package_utils.cpp" />
-    <ClCompile Include="config\package_utils.cpp" />
-    <ClCompile Include="config\panel_config.cpp" />
-    <ClCompile Include="config\parsed_panel_config.cpp" />
+    <ClCompile Include="Config\advanced_config.cpp" />
+    <ClCompile Include="Config\delayed_package_utils.cpp" />
+    <ClCompile Include="Config\package_utils.cpp" />
+    <ClCompile Include="Config\panel_config.cpp" />
+    <ClCompile Include="Config\parsed_panel_config.cpp" />
+    <ClCompile Include="FB2K\AlbumArtStatic.cpp" />
+    <ClCompile Include="FB2K\API.cpp" />
+    <ClCompile Include="FB2K\Attach.cpp" />
     <ClCompile Include="FB2K\Callbacks\ConfigObjectNotify.cpp" />
     <ClCompile Include="FB2K\Callbacks\ConsoleNotify.cpp" />
     <ClCompile Include="FB2K\Callbacks\DSPConfigCallback.cpp" />
@@ -109,9 +113,6 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClCompile Include="FB2K\Callbacks\PlaylistCallbackStatic.cpp" />
     <ClCompile Include="FB2K\Callbacks\ReplaygainCoreSettingsNotify.cpp" />
     <ClCompile Include="FB2K\Callbacks\UISelectionCallback.cpp" />
-    <ClCompile Include="FB2K\AlbumArtStatic.cpp" />
-    <ClCompile Include="FB2K\API.cpp" />
-    <ClCompile Include="FB2K\Attach.cpp" />
     <ClCompile Include="FB2K\ContextMenuCommand.cpp" />
     <ClCompile Include="FB2K\MainMenuCommand.cpp" />
     <ClCompile Include="FB2K\PlaylistLock.cpp" />
@@ -122,6 +123,7 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClCompile Include="Helpers\HTTPRequestAsync.cpp" />
     <ClCompile Include="Helpers\StackBlur.cpp" />
     <ClCompile Include="Helpers\TextFile.cpp" />
+    <ClCompile Include="InitQuit.cpp" />
     <ClCompile Include="Interfaces\active_x_object.cpp" />
     <ClCompile Include="Interfaces\active_x_object_iterator.cpp" />
     <ClCompile Include="Interfaces\context_menu_manager.cpp" />
@@ -181,11 +183,18 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClCompile Include="Namespaces\plman.cpp" />
     <ClCompile Include="Namespaces\utils.cpp" />
     <ClCompile Include="Namespaces\window.cpp" />
-    <ClCompile Include="panel\edit_script.cpp" />
-    <ClCompile Include="panel\PanelBase.cpp" />
-    <ClCompile Include="panel\PanelCUI.cpp" />
-    <ClCompile Include="panel\PanelDUI.cpp" />
-    <ClCompile Include="panel\modal_blocking_scope.cpp" />
+    <ClCompile Include="Panel\edit_script.cpp" />
+    <ClCompile Include="Panel\modal_blocking_scope.cpp" />
+    <ClCompile Include="Panel\PanelBase.cpp" />
+    <ClCompile Include="Panel\PanelCUI.cpp" />
+    <ClCompile Include="Panel\PanelDUI.cpp" />
+    <ClCompile Include="Paths.cpp" />
+    <ClCompile Include="PCH.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="UI\Config\ui_conf.cpp" />
+    <ClCompile Include="UI\Config\ui_conf_tab_package.cpp" />
+    <ClCompile Include="UI\Config\ui_conf_tab_script_source.cpp" />
     <ClCompile Include="UI\DialogProperties.cpp" />
     <ClCompile Include="UI\PropertyList.cpp" />
     <ClCompile Include="UI\Scintilla\DialogEditor.cpp" />
@@ -194,9 +203,6 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClCompile Include="UI\Scintilla\DialogStyle.cpp" />
     <ClCompile Include="UI\Scintilla\Scintilla.cpp" />
     <ClCompile Include="UI\Scintilla\ScintillaConfig.cpp" />
-    <ClCompile Include="UI\ui_conf\ui_conf.cpp" />
-    <ClCompile Include="UI\ui_conf\ui_conf_tab_package.cpp" />
-    <ClCompile Include="UI\ui_conf\ui_conf_tab_script_source.cpp" />
     <ClCompile Include="UI\ui_edit_in_progress.cpp" />
     <ClCompile Include="UI\ui_html.cpp">
       <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</MultiProcessorCompilation>
@@ -205,8 +211,8 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClCompile Include="UI\ui_package_manager.cpp" />
     <ClCompile Include="UI\ui_slow_script.cpp" />
     <ClCompile Include="Utils\edit_text.cpp" />
-    <ClCompile Include="Utils\error_popup.cpp" />
     <ClCompile Include="Utils\error_helpers.cpp" />
+    <ClCompile Include="Utils\error_popup.cpp" />
     <ClCompile Include="Utils\guid_helpers.cpp" />
     <ClCompile Include="Utils\hook_handler.cpp" />
     <ClCompile Include="Utils\image_helpers.cpp" />
@@ -217,14 +223,9 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClCompile Include="Utils\unicode.cpp" />
     <ClCompile Include="Utils\winapi_error_helpers.cpp" />
     <ClCompile Include="Utils\zip_utils.cpp" />
-    <ClCompile Include="Component.cpp" />
-    <ClCompile Include="InitQuit.cpp" />
-    <ClCompile Include="Paths.cpp" />
-    <ClCompile Include="PCH.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component.hpp" />
     <ClInclude Include="ComUtils\com_destruction_handler.h" />
     <ClInclude Include="ComUtils\com_tools.h" />
     <ClInclude Include="ComUtils\dispatch_ptr.h" />
@@ -234,11 +235,11 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClInclude Include="ComUtils\drop_target_impl.h" />
     <ClInclude Include="ComUtils\file_drop_target.h" />
     <ClInclude Include="ComUtils\track_drop_target.h" />
-    <ClInclude Include="config\advanced_config.h" />
-    <ClInclude Include="config\delayed_package_utils.h" />
-    <ClInclude Include="config\package_utils.h" />
-    <ClInclude Include="config\panel_config.h" />
-    <ClInclude Include="config\parsed_panel_config.h" />
+    <ClInclude Include="Config\advanced_config.h" />
+    <ClInclude Include="Config\delayed_package_utils.h" />
+    <ClInclude Include="Config\package_utils.h" />
+    <ClInclude Include="Config\panel_config.h" />
+    <ClInclude Include="Config\parsed_panel_config.h" />
     <ClInclude Include="FB2K\AlbumArtStatic.hpp" />
     <ClInclude Include="FB2K\API.hpp" />
     <ClInclude Include="FB2K\Attach.hpp" />
@@ -248,6 +249,7 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClInclude Include="FB2K\PlaylistLock.hpp" />
     <ClInclude Include="FB2K\ProcessLocationsNotify.hpp" />
     <ClInclude Include="FB2K\TagWriter.hpp" />
+    <ClInclude Include="GUIDS.hpp" />
     <ClInclude Include="Helpers\CustomSort.hpp" />
     <ClInclude Include="Helpers\DirectoryIterator.hpp" />
     <ClInclude Include="Helpers\DownloadFileAsync.hpp" />
@@ -327,18 +329,25 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClInclude Include="JsBackend\Timeout\timer_interface_fwd.h" />
     <ClInclude Include="JsBackend\Timeout\timer_manager_native.h" />
     <ClInclude Include="JsBackend\Timeout\timer_native.h" />
+    <ClInclude Include="MozJS.hpp" />
     <ClInclude Include="Namespaces\console.h" />
     <ClInclude Include="Namespaces\fb.h" />
     <ClInclude Include="Namespaces\gdi.h" />
     <ClInclude Include="Namespaces\plman.h" />
     <ClInclude Include="Namespaces\utils.h" />
     <ClInclude Include="Namespaces\window.h" />
-    <ClInclude Include="panel\drag_action_params.h" />
-    <ClInclude Include="panel\edit_script.h" />
-    <ClInclude Include="panel\PanelBase.h" />
-    <ClInclude Include="panel\modal_blocking_scope.h" />
-    <ClInclude Include="panel\user_message.h" />
-    <ClInclude Include="resources\resource.h" />
+    <ClInclude Include="Panel\drag_action_params.h" />
+    <ClInclude Include="Panel\edit_script.h" />
+    <ClInclude Include="Panel\modal_blocking_scope.h" />
+    <ClInclude Include="Panel\PanelBase.h" />
+    <ClInclude Include="Panel\user_message.h" />
+    <ClInclude Include="Paths.hpp" />
+    <ClInclude Include="PCH.hpp" />
+    <ClInclude Include="Resources\resource.h" />
+    <ClInclude Include="SpiderMonkey.hpp" />
+    <ClInclude Include="UI\Config\ui_conf.h" />
+    <ClInclude Include="UI\Config\ui_conf_tab_package.h" />
+    <ClInclude Include="UI\Config\ui_conf_tab_script_source.h" />
     <ClInclude Include="UI\DialogProperties.hpp" />
     <ClInclude Include="UI\PropertyList.hpp" />
     <ClInclude Include="UI\Scintilla\DialogEditor.hpp" />
@@ -349,9 +358,6 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClInclude Include="UI\Scintilla\Scintilla.hpp" />
     <ClInclude Include="UI\Scintilla\ScintillaConfig.hpp" />
     <ClInclude Include="UI\Scintilla\ScintillaImpl.hpp" />
-    <ClInclude Include="UI\ui_conf\ui_conf.h" />
-    <ClInclude Include="UI\ui_conf\ui_conf_tab_package.h" />
-    <ClInclude Include="UI\ui_conf\ui_conf_tab_script_source.h" />
     <ClInclude Include="UI\ui_edit_in_progress.h" />
     <ClInclude Include="UI\ui_html.h" />
     <ClInclude Include="UI\ui_input_box.h" />
@@ -359,8 +365,8 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClInclude Include="UI\ui_slow_script.h" />
     <ClInclude Include="Utils\colour_helpers.h" />
     <ClInclude Include="Utils\edit_text.h" />
-    <ClInclude Include="Utils\error_popup.h" />
     <ClInclude Include="Utils\error_helpers.h" />
+    <ClInclude Include="Utils\error_popup.h" />
     <ClInclude Include="Utils\guid_helpers.h" />
     <ClInclude Include="Utils\hook_handler.h" />
     <ClInclude Include="Utils\image_helpers.h" />
@@ -374,12 +380,6 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClInclude Include="Utils\unicode.h" />
     <ClInclude Include="Utils\winapi_error_helpers.h" />
     <ClInclude Include="Utils\zip_utils.h" />
-    <ClInclude Include="Component.hpp" />
-    <ClInclude Include="GUIDS.hpp" />
-    <ClInclude Include="MozJS.hpp" />
-    <ClInclude Include="Paths.hpp" />
-    <ClInclude Include="PCH.hpp" />
-    <ClInclude Include="SpiderMonkey.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\foobar2000-sdk\columns_ui-sdk\columns_ui-sdk.vcxproj">
@@ -409,21 +409,21 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
-    <None Include="resources\cfgBright.cfg" />
-    <None Include="resources\cfgDarkGray.cfg" />
-    <None Include="resources\cfgDefault.cfg" />
-    <None Include="resources\cfgRubyBlue.cfg" />
-    <None Include="resources\default_script.js" />
-    <None Include="resources\recovery_package_json.json" />
-    <None Include="resources\recovery_package_script.js" />
-    <None Include="resources\scintilla_component.api" />
-    <None Include="resources\scintilla_js.api" />
+    <None Include="Resources\cfgBright.cfg" />
+    <None Include="Resources\cfgDarkGray.cfg" />
+    <None Include="Resources\cfgDefault.cfg" />
+    <None Include="Resources\cfgRubyBlue.cfg" />
+    <None Include="Resources\default_script.js" />
+    <None Include="Resources\recovery_package_json.json" />
+    <None Include="Resources\recovery_package_script.js" />
+    <None Include="Resources\scintilla_component.api" />
+    <None Include="Resources\scintilla_js.api" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="ComUtils\com_interface.idl" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="resources\foo_spider_monkey_panel.rc" />
+    <ResourceCompile Include="Resources\foo_spider_monkey_panel.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,7 @@
 #include <config/parsed_panel_config.h>
 #include <JsBackend/Events/event.h>
 #include <interfaces/fb_tooltip.h>
-#include <UI/ui_conf/ui_conf.h>
+#include <UI/Config/ui_conf.h>
 
 class IDropTargetImpl;
 
