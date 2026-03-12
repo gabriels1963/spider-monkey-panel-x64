@@ -521,7 +521,7 @@ namespace
 		JSObject* Fb::GetNowPlaying()
 		{
 			metadb_handle_ptr metadb;
-			
+
 			if (fb2k::api::pc->get_now_playing(metadb))
 			{
 				return JsFbMetadbHandle::CreateJs(m_ctx, metadb);

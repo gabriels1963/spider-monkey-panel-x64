@@ -44,7 +44,7 @@ void CDialogProperties::OnApplyOrOK(uint32_t, int32_t nID, CWindow)
 	auto& properties = m_parent->GetPanelProperties();
 	properties.values = m_list.GetProperties().values;
 	m_parent->ReloadScript();
-	
+
 	if (nID == IDC_BTN_APPLY)
 	{
 		m_list.SetProperties(properties);

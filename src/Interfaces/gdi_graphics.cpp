@@ -179,7 +179,7 @@ namespace mozjs
 		if (angle != 0.f)
 		{
 			Gdiplus::Matrix m, old_m;
-			
+
 			status = m.RotateAt(angle, Gdiplus::PointF(dstX + (dstW / 2), dstY + (dstH / 2)));
 			smp::CheckGdi(status, "RotateAt");
 

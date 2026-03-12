@@ -56,7 +56,7 @@ DWORD TrackDropTarget::OnDragEnter(IDataObject* pDataObj, DWORD grfKeyState, POI
 
 	bool native{};
 	const auto hr = ole_interaction::get()->check_dataobject(pDataObj, fb2kAllowedEffect_, native);
-		
+
 	if (FAILED(hr))
 	{
 		fb2kAllowedEffect_ = DROPEFFECT_NONE;

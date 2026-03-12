@@ -10,7 +10,7 @@ namespace
 		static wil::com_ptr<IDropTargetHelper> dth = []
 			{
 				auto tmp = wil::CoCreateInstanceNoThrow<IDropTargetHelper>(CLSID_DragDropHelper);
-				
+
 				if (!tmp)
 					throw QwrException("CoCreateInstance");
 

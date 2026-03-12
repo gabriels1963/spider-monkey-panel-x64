@@ -136,7 +136,7 @@ void CDialogHtml::OnClose()
 void CDialogHtml::OnCloseCmd(WORD, WORD wID, HWND)
 {
 	if (!m_closing)
-	{ 
+	{
 		// e.g. pressed RETURN
 		return;
 	}

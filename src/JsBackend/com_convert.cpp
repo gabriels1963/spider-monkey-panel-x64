@@ -103,7 +103,7 @@ namespace
 			catch (...)
 			{
 				auto wnd = m_native_global->GetPanelHwnd();
-				
+
 				if (wnd)
 				{
 					const auto errorMsg = mozjs::ExceptionToText(m_ctx);

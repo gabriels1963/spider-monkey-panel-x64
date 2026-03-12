@@ -165,7 +165,7 @@ namespace mozjs
 		cm.m[0][0] = cm.m[1][1] = cm.m[2][2] = cm.m[4][4] = 1.f;
 		cm.m[3][3] = static_cast<float>(alpha) / 255.f;
 		ia.SetColorMatrix(&cm);
-		
+
 		auto bitmap = ApplyAttributes(ia);
 		return JsGdiBitmap::CreateJs(m_ctx, std::move(bitmap));
 	}
