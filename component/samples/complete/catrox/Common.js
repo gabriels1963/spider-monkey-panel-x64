@@ -871,6 +871,10 @@ function _RGBA(r, g, b, a) {
 	return a << 24 | r << 16 | g << 8 | b;
 }
 
+function _RGBtoRGBA(rgb, a) {
+	return a << 24 | (rgb & 0x00FFFFFF);
+}
+
 function _run() {
 	try {
 		WshShell.Run(_.map(arguments, _q).join(' '));
