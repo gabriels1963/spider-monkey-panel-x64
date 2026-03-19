@@ -295,5 +295,5 @@ Returns a `string`.
 # Properties
 |||||
 |---|---|---|---|
-|window.DPI|`boolean`|`read`|This value is fixed upon `foobar2000` startup. if you change display settings, you must restart the application to see the new value.|
+|window.DPI|`number`|`read`|This value is fixed upon `foobar2000` startup. If you change display settings, you must restart the application to see the new value.|
 |window.IsDark|`boolean`|`read`|Should be used with `on_colours_changed`|
