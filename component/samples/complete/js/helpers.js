@@ -555,7 +555,7 @@ tooltip.SetMaxWidth(800);
 let folders = {};
 folders.home = fb.ComponentPath + 'samples\\complete\\';
 folders.images = folders.home + 'images\\';
-folders.data = fb.ProfilePath + 'js_data\\';
+folders.data = 'm:\\js_data\\;
 folders.artists = folders.data + 'artists\\';
 folders.lastfm = folders.data + 'lastfm\\';
 
