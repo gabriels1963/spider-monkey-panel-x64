@@ -98,8 +98,10 @@ namespace mozjs
 	private:
 		Plman(JSContext* ctx);
 
-	private:
-		static inline const std::unordered_map<std::string, uint32_t> s_actionToMask = {
+		static void check_playlist(uint32_t playlistIndex);
+
+		static inline const std::unordered_map<std::string, uint32_t> s_actionToMask =
+		{
 			{ "AddItems", playlist_lock::filter_add },
 			{ "RemoveItems", playlist_lock::filter_remove },
 			{ "ReorderItems", playlist_lock::filter_reorder },

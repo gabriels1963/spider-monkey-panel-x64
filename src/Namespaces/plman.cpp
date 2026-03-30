@@ -178,6 +178,11 @@ namespace mozjs
 		m_recycler.reset();
 	}
 
+	void Plman::check_playlist(uint32_t playlistIndex)
+	{
+		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "playlistIndex is out of bounds");
+	}
+
 	void Plman::AddItemToPlaybackQueue(JsFbMetadbHandle* handle)
 	{
 		QwrException::ExpectTrue(handle, "handle argument is null");
@@ -187,7 +192,7 @@ namespace mozjs
 
 	void Plman::AddLocations(uint32_t playlistIndex, JS::HandleValue locations, bool select)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "playlistIndex is invalid");
+		check_playlist(playlistIndex);
 		QwrException::ExpectTrue(
 			!WI_IsFlagSet(fb2k::api::pm->playlist_lock_get_filter_mask(playlistIndex), playlist_lock::filter_add),
 			"a playlist lock prevents adding new items to the specified playlistIndex"
@@ -281,7 +286,7 @@ namespace mozjs
 
 	uint32_t Plman::DuplicatePlaylist(uint32_t from, const std::string& name)
 	{
-		QwrException::ExpectTrue(from < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(from);
 
 		pfc::string8 new_name(name.c_str());
 
@@ -365,7 +370,7 @@ namespace mozjs
 
 	std::string Plman::GetGUID(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		const auto guid = fb2k::api::pm->playlist_get_guid(playlistIndex);
 		return pfc::print_guid(guid).get_ptr();
@@ -425,7 +430,7 @@ namespace mozjs
 
 	std::wstring Plman::GetPlaylistLockName(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		pfc::string8 lockName;
 		if (fb2k::api::pm->playlist_lock_query_name(playlistIndex, lockName))
@@ -436,7 +441,7 @@ namespace mozjs
 
 	JS::Value Plman::GetPlaylistLockedActions(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		Strings actions;
 		const auto lockMask = fb2k::api::pm->playlist_lock_get_filter_mask(playlistIndex);
@@ -513,7 +518,7 @@ namespace mozjs
 
 	bool Plman::IsAutoPlaylist(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		return autoplaylist_manager::get()->is_client_present(playlistIndex);
 	}
@@ -525,21 +530,21 @@ namespace mozjs
 
 	bool Plman::IsPlaylistLocked(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		return fb2k::api::pm->playlist_lock_is_present(playlistIndex);
 	}
 
 	bool Plman::IsRedoAvailable(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		return fb2k::api::pm->playlist_is_redo_available(playlistIndex);
 	}
 
 	bool Plman::IsUndoAvailable(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		return fb2k::api::pm->playlist_is_undo_available(playlistIndex);
 	}
@@ -639,8 +644,8 @@ namespace mozjs
 
 	void Plman::SetPlaylistLockedActions(uint32_t playlistIndex, JS::HandleValue lockedActions)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
-		QwrException::ExpectTrue(lockedActions.isObjectOrNull(), "`lockedActions` argument is not an object nor null");
+		check_playlist(playlistIndex);
+		QwrException::ExpectTrue(lockedActions.isObjectOrNull(), "lockedActions is invalid");
 
 		const auto is_my_lock = PlaylistLock::is_my_lock(playlistIndex);
 		const auto other_lock = fb2k::api::pm->playlist_lock_is_present(playlistIndex) && !is_my_lock;
@@ -703,7 +708,7 @@ namespace mozjs
 
 	bool Plman::ShowAutoPlaylistUI(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		auto api = autoplaylist_manager::get();
 		if (!api->is_client_present(playlistIndex))
@@ -803,7 +808,7 @@ namespace mozjs
 
 	void Plman::UndoBackup(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		fb2k::api::pm->playlist_undo_backup(playlistIndex);
 	}
@@ -842,7 +847,7 @@ namespace mozjs
 
 	void Plman::put_ActivePlaylist(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		fb2k::api::pm->set_active_playlist(playlistIndex);
 	}
@@ -856,7 +861,7 @@ namespace mozjs
 
 	void Plman::put_PlayingPlaylist(uint32_t playlistIndex)
 	{
-		QwrException::ExpectTrue(playlistIndex < fb2k::api::pm->get_playlist_count(), "Index is out of bounds");
+		check_playlist(playlistIndex);
 
 		fb2k::api::pm->set_playing_playlist(playlistIndex);
 	}
