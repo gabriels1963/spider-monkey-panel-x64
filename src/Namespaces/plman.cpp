@@ -655,7 +655,7 @@ namespace mozjs
 
 		if (lockedActions.isObject())
 		{
-			const auto lockedActionsVec = convert::to_native::ToValue<Strings>(m_ctx, lockedActions);
+			const auto lockedActionsVec = convert::to_native::ToVector<std::string>(m_ctx, lockedActions);
 
 			for (const auto& action : lockedActionsVec)
 			{
