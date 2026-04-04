@@ -19,13 +19,13 @@ jobs:
       uses: actions/cache@v5
       with:
         path: C:\Users\runneradmin\AppData\Local\vcpkg\archives
-        key: a44707152fabbedcf1c17fe80d7bfb7d9370d8d5
+        key: 77df67cfff9c12ccfdb52284e07c87c75092f723
 
     - name: Set up vcpkg
       working-directory: C:\vcpkg
       run: |
         git pull && bootstrap-vcpkg && vcpkg integrate install
-        vcpkg install cpr fmt miniz nlohmann-json wil wtl --triplet x64-windows-static
+        vcpkg install curl[http2] cpr fmt miniz nlohmann-json wil wtl --triplet x64-windows-static
 
     - name: Build
       run: msbuild workspace\foo_spider_monkey_panel.slnx /p:PlatformToolset=v143
