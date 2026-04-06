@@ -31,6 +31,7 @@
 #include <variant>
 #include <vector>
 
+// win sdk
 #include <WinSock2.h>
 #include <Windows.h>
 #include <windowsx.h>
@@ -63,6 +64,9 @@
 #include <atlframe.h>
 #include <atltypes.h>
 #include <atlwin.h>
+
+// cpr
+#include <cpr/cpr.h>
 
 // fmt
 #define FMT_HEADER_ONLY

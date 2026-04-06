@@ -1,5 +1,4 @@
 #pragma once
-#include <cpr/cpr.h>
 
 class HTTPRequestAsync : public fb2k::threadEntry
 {
