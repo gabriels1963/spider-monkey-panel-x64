@@ -19,7 +19,7 @@ jobs:
       uses: actions/cache@v5
       with:
         path: C:\Users\runneradmin\AppData\Local\vcpkg\archives
-        key: 77df67cfff9c12ccfdb52284e07c87c75092f723
+        key: afeb285c9e2e015292985856b9382ea1d82a4492
 
     - name: Set up vcpkg
       working-directory: C:\vcpkg
@@ -34,13 +34,13 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: debug_symbols
-        path: component/foo_spider_monkey_panel.pdb
+        path: dist/foo_spider_monkey_panel.pdb
 
     - name: Delete pdb
-      run: del component/foo_spider_monkey_panel.pdb
+      run: del dist/foo_spider_monkey_panel.pdb
 
-    - name: Upload component folder
+    - name: Upload dist folder
       uses: actions/upload-artifact@v7
       with:
         name: foo_spider_monkey_panel-${{ github.sha }}
-        path: component
+        path: dist
