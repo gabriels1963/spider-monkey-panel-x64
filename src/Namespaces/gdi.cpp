@@ -1,7 +1,7 @@
 #include "PCH.hpp"
 #include "gdi.h"
 
-#include <Helpers/LoadImageAsync.hpp>
+#include <Async/LoadImageAsync.hpp>
 #include <Interfaces/gdi_bitmap.h>
 #include <Interfaces/gdi_font.h>
 #include <JsBackend/js_image_helpers.h>

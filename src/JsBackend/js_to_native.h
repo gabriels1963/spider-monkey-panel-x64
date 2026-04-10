@@ -56,24 +56,6 @@ namespace mozjs::convert::to_native
 		template <>
 		std::nullptr_t ToSimpleValue<std::nullptr_t>(JSContext* ctx, const JS::HandleValue& jsValue);
 
-		template <typename T>
-		std::vector<T> ToVector(JSContext* ctx, JS::HandleObject jsObject)
-		{
-			std::vector<T> nativeValues;
-			ProcessArray<T>(ctx, jsObject, [&nativeValues](T&& nativeValue) { nativeValues.push_back(std::forward<T>(nativeValue)); });
-
-			return nativeValues;
-		}
-
-		template <typename T>
-		std::vector<T> ToVector(JSContext* ctx, JS::HandleValue jsValue)
-		{
-			JS::RootedObject jsObject(ctx, jsValue.toObjectOrNull());
-			QwrException::ExpectTrue(jsObject, "Value is not a JS object");
-
-			return ToVector<T>(ctx, jsObject);
-		}
-
 		template <typename T, typename F>
 		void ProcessArray(JSContext* ctx, JS::HandleObject jsObject, F&& workerFunc)
 		{
@@ -124,10 +106,6 @@ namespace mozjs::convert::to_native
 			JS::RootedObject jsObject(ctx, &jsValue.toObject());
 			return internal::ToSimpleValue<T>(ctx, jsObject);
 		}
-		else if constexpr (smp::is_specialization_of_v<T, std::vector>)
-		{
-			return internal::ToVector<typename T::value_type>(ctx, jsValue);
-		}
 		else
 		{
 			static_assert(smp::always_false_v<T>, "Unsupported type");
@@ -145,6 +123,17 @@ namespace mozjs::convert::to_native
 
 	template <>
 	std::wstring ToValue(JSContext* ctx, const JS::HandleString& jsString);
+
+	template <typename T>
+	std::vector<T> ToVector(JSContext* ctx, JS::HandleValue jsValue)
+	{
+		JS::RootedObject jsObject(ctx, jsValue.toObjectOrNull());
+		QwrException::ExpectTrue(jsObject, "Value is not a JS object");
+
+		std::vector<T> nativeValues;
+		internal::ProcessArray<T>(ctx, jsObject, [&nativeValues](T&& nativeValue) { nativeValues.push_back(std::forward<T>(nativeValue)); });
+		return nativeValues;
+	}
 
 	template <typename T, typename F>
 	void ProcessArray(JSContext* ctx, JS::HandleValue jsValue, F&& workerFunc)

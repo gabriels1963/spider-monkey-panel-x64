@@ -50,7 +50,6 @@ bool TextFile::write(std::string_view content, bool write_bom) noexcept
 	return f.write(content.data(), content.length()).good();
 }
 
-
 std::string TextFile::read() noexcept
 {
 	auto f = std::ifstream(m_path);

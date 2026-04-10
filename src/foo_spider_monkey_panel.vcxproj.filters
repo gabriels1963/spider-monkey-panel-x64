@@ -49,6 +49,9 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{047b1a54-ba81-4cee-910d-751ebb3953fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Async">
+      <UniqueIdentifier>{4824e720-f305-42b1-bedb-87b546b93396}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Component.cpp" />
@@ -151,13 +154,7 @@
     <ClCompile Include="FB2K\TagWriter.cpp">
       <Filter>FB2K</Filter>
     </ClCompile>
-    <ClCompile Include="Helpers\DownloadFileAsync.cpp">
-      <Filter>Helpers</Filter>
-    </ClCompile>
     <ClCompile Include="Helpers\FileHelper.cpp">
-      <Filter>Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="Helpers\HTTPRequestAsync.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
     <ClCompile Include="Helpers\StackBlur.cpp">
@@ -448,6 +445,12 @@
     <ClCompile Include="FB2K\Callbacks\MainMenuCallback.cpp">
       <Filter>FB2K\Callbacks</Filter>
     </ClCompile>
+    <ClCompile Include="Async\DownloadFileAsync.cpp">
+      <Filter>Async</Filter>
+    </ClCompile>
+    <ClCompile Include="Async\HTTPRequestAsync.cpp">
+      <Filter>Async</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.hpp" />
@@ -531,9 +534,6 @@
     <ClInclude Include="Helpers\DirectoryIterator.hpp">
       <Filter>Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="Helpers\DownloadFileAsync.hpp">
-      <Filter>Helpers</Filter>
-    </ClInclude>
     <ClInclude Include="Helpers\EstimateLineWrap.hpp">
       <Filter>Helpers</Filter>
     </ClInclude>
@@ -546,19 +546,10 @@
     <ClInclude Include="Helpers\FontHelper.hpp">
       <Filter>Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="Helpers\GetAlbumArtAsync.hpp">
-      <Filter>Helpers</Filter>
-    </ClInclude>
     <ClInclude Include="Helpers\Helpers.hpp">
       <Filter>Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="Helpers\HTTPRequestAsync.hpp">
-      <Filter>Helpers</Filter>
-    </ClInclude>
     <ClInclude Include="Helpers\KMeans.hpp">
-      <Filter>Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="Helpers\LoadImageAsync.hpp">
       <Filter>Helpers</Filter>
     </ClInclude>
     <ClInclude Include="Helpers\StackBlur.hpp">
@@ -902,6 +893,18 @@
     </ClInclude>
     <ClInclude Include="Utils\zip_utils.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Async\DownloadFileAsync.hpp">
+      <Filter>Async</Filter>
+    </ClInclude>
+    <ClInclude Include="Async\GetAlbumArtAsync.hpp">
+      <Filter>Async</Filter>
+    </ClInclude>
+    <ClInclude Include="Async\HTTPRequestAsync.hpp">
+      <Filter>Async</Filter>
+    </ClInclude>
+    <ClInclude Include="Async\LoadImageAsync.hpp">
+      <Filter>Async</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

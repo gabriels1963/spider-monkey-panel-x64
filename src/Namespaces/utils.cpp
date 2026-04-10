@@ -1,11 +1,11 @@
 #include "PCH.hpp"
 #include "utils.h"
 
+#include <Async/DownloadFileAsync.hpp>
+#include <Async/GetAlbumArtAsync.hpp>
+#include <Async/HTTPRequestAsync.hpp>
 #include <FB2K/AlbumArtStatic.hpp>
-#include <Helpers/DownloadFileAsync.hpp>
 #include <Helpers/FontHelper.hpp>
-#include <Helpers/GetAlbumArtAsync.hpp>
-#include <Helpers/HTTPRequestAsync.hpp>
 #include <Config/package_utils.h>
 #include <Interfaces/fb_metadb_handle.h>
 #include <Interfaces/gdi_bitmap.h>

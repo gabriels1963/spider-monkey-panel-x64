@@ -482,7 +482,7 @@ namespace
 			{
 				fb2k::api::pm->activeplaylist_get_item_handle(metadb, 0uz);
 			}
-		
+
 			if (metadb.is_valid())
 			{
 				return JsFbMetadbHandle::CreateJs(m_ctx, metadb);

@@ -1,6 +1,5 @@
 import "docobj.idl";
 
-
 [ version(1.0), uuid(6c3b2186-7acd-3e01-8887-1a693c30fdaf) ]
 library foo_spider_monkey_panel
 {

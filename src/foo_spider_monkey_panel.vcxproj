@@ -85,6 +85,8 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Async\DownloadFileAsync.cpp" />
+    <ClCompile Include="Async\HTTPRequestAsync.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComUtils\com_destruction_handler.cpp" />
     <ClCompile Include="ComUtils\drag_image.cpp" />
@@ -119,9 +121,7 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClCompile Include="FB2K\PlaylistLock.cpp" />
     <ClCompile Include="FB2K\ProcessLocationsNotify.cpp" />
     <ClCompile Include="FB2K\TagWriter.cpp" />
-    <ClCompile Include="Helpers\DownloadFileAsync.cpp" />
     <ClCompile Include="Helpers\FileHelper.cpp" />
-    <ClCompile Include="Helpers\HTTPRequestAsync.cpp" />
     <ClCompile Include="Helpers\StackBlur.cpp" />
     <ClCompile Include="Helpers\TextFile.cpp" />
     <ClCompile Include="InitQuit.cpp" />
@@ -226,6 +226,10 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClCompile Include="Utils\zip_utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Async\DownloadFileAsync.hpp" />
+    <ClInclude Include="Async\GetAlbumArtAsync.hpp" />
+    <ClInclude Include="Async\HTTPRequestAsync.hpp" />
+    <ClInclude Include="Async\LoadImageAsync.hpp" />
     <ClInclude Include="Component.hpp" />
     <ClInclude Include="ComUtils\com_destruction_handler.h" />
     <ClInclude Include="ComUtils\com_tools.h" />
@@ -253,16 +257,12 @@ copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
     <ClInclude Include="GUIDS.hpp" />
     <ClInclude Include="Helpers\CustomSort.hpp" />
     <ClInclude Include="Helpers\DirectoryIterator.hpp" />
-    <ClInclude Include="Helpers\DownloadFileAsync.hpp" />
     <ClInclude Include="Helpers\EstimateLineWrap.hpp" />
     <ClInclude Include="Helpers\FileDialog.hpp" />
     <ClInclude Include="Helpers\FileHelper.hpp" />
     <ClInclude Include="Helpers\FontHelper.hpp" />
-    <ClInclude Include="Helpers\GetAlbumArtAsync.hpp" />
     <ClInclude Include="Helpers\Helpers.hpp" />
-    <ClInclude Include="Helpers\HTTPRequestAsync.hpp" />
     <ClInclude Include="Helpers\KMeans.hpp" />
-    <ClInclude Include="Helpers\LoadImageAsync.hpp" />
     <ClInclude Include="Helpers\StackBlur.hpp" />
     <ClInclude Include="Helpers\String.hpp" />
     <ClInclude Include="Helpers\TextFile.hpp" />

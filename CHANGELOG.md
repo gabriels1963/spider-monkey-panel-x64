@@ -1,5 +1,9 @@
 For new methods/callbacks, see the [API](./docs/api.md) page.
 
+## 1.7.26.4.5
+- `utils.HTTPRequestAsync` now supports `http/2`.
+- The `Scintilla` library used for code highlighting has been updated to the latest version.
+
 ## 1.7.26.3.17
 - Restore previous behaviour of `fb.GetFocusItem`.
 - Fix stupid `CaTRoX` playlist bug which made it unusable for most people.
@@ -109,7 +113,7 @@ font in your UI preferences, the component will fallback to `Segoe UI` automatic
 - Fix crashing when using certain library iteration methods in WINE.
 
 ## 1.7.25.12.11
-- The Scintilla library used for code highlighting has been updated to the latest version. This means:
+- The `Scintilla` library used for code highlighting has been updated to the latest version. This means:
   * any previous custom colour scheme will be lost and previously generated .cfg files are no longer compatible.
   * custom colour schemes are still supported but the default is to update itself automatically whenever dark mode is toggled.
 - The main editor, find/replace and goto dialogs have been updated to support dark mode.
