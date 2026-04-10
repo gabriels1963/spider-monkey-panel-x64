@@ -26,4 +26,4 @@ Run this command to install the required packages:
 Now browse inside the `foo_spider_monkey_panel` folder and open `workspace/foo_spider_monkey_panel.slnx` in
 `Visual Studio 2026` and it should build.
 
-When building succeeds, check the `component` folder as the compiled `dll` is copied there.
+When building succeeds, check the `dist` folder as the compiled `dll` is copied there.

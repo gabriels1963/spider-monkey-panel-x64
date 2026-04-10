@@ -77,11 +77,11 @@
       <OutputDirectory>$(ProjectDir)ComUtils</OutputDirectory>
     </Midl>
     <PostBuildEvent>
-      <Command>set component_path=$(SolutionDir)..\component\
+      <Command>set dist_path=$(SolutionDir)..\dist\
 set mozjs_dir=$(SolutionDir)..\mozjs\
-copy /Y "$(TargetPath)" "%component_path%"
-copy /Y "$(TargetDir)$(TargetName).pdb" "%component_path%"
-copy /Y "%mozjs_dir%mozjs-102.dll" "%component_path%"</Command>
+copy /Y "$(TargetPath)" "%dist_path%"
+copy /Y "$(TargetDir)$(TargetName).pdb" "%dist_path%"
+copy /Y "%mozjs_dir%mozjs-102.dll" "%dist_path%"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
