@@ -12,15 +12,13 @@ namespace smp
 		TimeoutManager(std::shared_ptr<PanelTarget> pTarget);
 		~TimeoutManager();
 
-		void Finalize();
-
-		void SetLoadingStatus(bool isLoading);
-
 		[[nodiscard]] uint32_t SetInterval(uint32_t interval, std::unique_ptr<mozjs::JsAsyncTask> pJsTask);
 		[[nodiscard]] uint32_t SetTimeout(uint32_t delay, std::unique_ptr<mozjs::JsAsyncTask> pJsTask);
 
-		void ClearTimeout(uint32_t timerId);
-		void StopAllTimeouts();
+		void ClearIntervalOrTimeout(uint32_t timerId);
+		void Finalize();
+		void SetLoadingStatus(bool isLoading);
+		void StopAll();
 
 		// Should be called only by TimeoutExecutor
 		void RunTimeout(const TimeStamp& now, const TimeStamp& targetDeadline);

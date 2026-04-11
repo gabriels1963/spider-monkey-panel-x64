@@ -13,22 +13,16 @@ namespace mozjs
 		static std::unique_ptr<Window> CreateNative(JSContext* ctx, smp::PanelBase& parentPanel);
 		uint32_t GetInternalSize();
 
-	public:
 		void PrepareForGc();
 		[[nodiscard]] HWND GetHwnd() const;
 
-	public: // methods
 		void ClearInterval(uint32_t intervalId) const;
 		void ClearTimeout(uint32_t timeoutId) const;
 		JSObject* CreatePopupMenu();
 		JSObject* CreateThemeManager(const std::wstring& classid);
-		// TODO v2: remove
 		JSObject* CreateTooltip(const std::wstring& name = L"Segoe UI", uint32_t pxSize = 12, uint32_t style = 0);
-		// TODO v2: remove
 		JSObject* CreateTooltipWithOpt(size_t optArgCount, const std::wstring& name, uint32_t pxSize, uint32_t style);
-		// TODO v2: remove
 		void DefinePanel(const std::string& name, JS::HandleValue options = JS::UndefinedHandleValue);
-		// TODO v2: remove
 		void DefinePanelWithOpt(size_t optArgCount, const std::string& name, JS::HandleValue options = JS::UndefinedHandleValue);
 		void DefineScript(const std::string& name, JS::HandleValue options = JS::UndefinedHandleValue);
 		void DefineScriptWithOpt(size_t optArgCount, const std::string& name, JS::HandleValue options = JS::UndefinedHandleValue);
@@ -56,7 +50,6 @@ namespace mozjs
 		void ShowConfigureV2();
 		void ShowProperties();
 
-	public: // props
 		uint32_t get_DlgCode();
 		uint32_t get_DPI();
 		int32_t get_Height();
@@ -68,16 +61,13 @@ namespace mozjs
 		JSObject* get_JsMemoryStats();
 		int32_t get_MaxHeight();
 		int32_t get_MaxWidth();
-		// TODO v2: remove
 		uint32_t get_MemoryLimit() const;
 		int32_t get_MinHeight();
 		int32_t get_MinWidth();
 		std::string get_Name();
-		// TODO v2: remove
 		uint64_t get_PanelMemoryUsage();
 		JSObject* get_ScriptInfo();
 		JSObject* get_Tooltip();
-		// TODO v2: remove
 		uint64_t get_TotalMemoryUsage() const;
 		int32_t get_Width();
 		void put_DlgCode(uint32_t code);
@@ -102,7 +92,6 @@ namespace mozjs
 
 		DefineScriptOptions ParseDefineScriptOptions(JS::HandleValue options);
 
-	private:
 		JSContext* m_ctx{};
 		smp::PanelBase& m_parent;
 		bool m_isFinalized{}, m_isScriptDefined{};

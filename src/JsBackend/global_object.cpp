@@ -233,12 +233,12 @@ namespace mozjs
 
 	void JsGlobalObject::ClearInterval(uint32_t intervalId)
 	{
-		m_window->ClearInterval(intervalId);
+		m_parent_container.GetParentPanel().GetTimeoutManager().ClearIntervalOrTimeout(intervalId);
 	}
 
 	void JsGlobalObject::ClearTimeout(uint32_t timeoutId)
 	{
-		m_window->ClearInterval(timeoutId);
+		m_parent_container.GetParentPanel().GetTimeoutManager().ClearIntervalOrTimeout(timeoutId);
 	}
 
 	void JsGlobalObject::IncludeScript(const std::wstring& path, JS::HandleValue options)

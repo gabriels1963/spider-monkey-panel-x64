@@ -295,7 +295,7 @@ namespace mozjs
 			return;
 		}
 
-		m_parent.GetTimeoutManager().ClearTimeout(intervalId);
+		m_parent.GetTimeoutManager().ClearIntervalOrTimeout(intervalId);
 	}
 
 	void Window::ClearTimeout(uint32_t timeoutId) const
@@ -305,7 +305,7 @@ namespace mozjs
 			return;
 		}
 
-		m_parent.GetTimeoutManager().ClearTimeout(timeoutId);
+		m_parent.GetTimeoutManager().ClearIntervalOrTimeout(timeoutId);
 	}
 
 	JSObject* Window::CreatePopupMenu()

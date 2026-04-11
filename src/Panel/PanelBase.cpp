@@ -10,7 +10,6 @@
 #include <Config/package_utils.h>
 #include <JsBackend/Events/event_drag.h>
 #include <JsBackend/Events/event_mouse.h>
-#include <JsBackend/Timeout/timeout_manager.h>
 #include <UI/DialogProperties.hpp>
 #include <Utils/mainmenu_dynamic.h>
 
@@ -1324,7 +1323,7 @@ namespace smp
 
 		DynamicMainMenuManager::Get().UnregisterPanel(wnd_);
 		pJsContainer_->Finalize();
-		pTimeoutManager_->StopAllTimeouts();
+		pTimeoutManager_->StopAll();
 		selectionHolder_.release();
 
 		SetDragAndDropStatus(false);

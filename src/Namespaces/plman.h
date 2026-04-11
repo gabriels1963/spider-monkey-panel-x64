@@ -18,7 +18,6 @@ namespace mozjs
 
 		void PrepareForGc();
 
-	public:
 		void AddItemToPlaybackQueue(JsFbMetadbHandle* handle);
 		void AddLocations(uint32_t playlistIndex, JS::HandleValue locations, bool select = false);
 		void AddLocationsWithOpt(size_t optArgCount, uint32_t playlistIndex, JS::HandleValue locations, bool select);
@@ -53,7 +52,6 @@ namespace mozjs
 		void InsertPlaylistItemsFilterWithOpt(size_t optArgCount, uint32_t playlistIndex, uint32_t base, JsFbMetadbHandleList* handles, bool select);
 		bool IsAutoPlaylist(uint32_t playlistIndex);
 		bool IsPlaylistItemSelected(uint32_t playlistIndex, uint32_t playlistItemIndex);
-		// TODO v2: remove
 		bool IsPlaylistLocked(uint32_t playlistIndex);
 		bool IsRedoAvailable(uint32_t playlistIndex);
 		bool IsUndoAvailable(uint32_t playlistIndex);
@@ -85,7 +83,6 @@ namespace mozjs
 		void Undo(uint32_t playlistIndex);
 		void UndoBackup(uint32_t playlistIndex);
 
-	public:
 		int32_t get_ActivePlaylist();
 		uint32_t get_PlaybackOrder();
 		int32_t get_PlayingPlaylist();

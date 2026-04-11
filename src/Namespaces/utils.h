@@ -13,7 +13,6 @@ namespace mozjs
 		static std::unique_ptr<Utils> CreateNative(JSContext* ctx);
 		uint32_t GetInternalSize();
 
-	public:
 		bool CheckComponent(const std::string& name, bool is_dll = true) const;
 		bool CheckComponentWithOpt(size_t optArgCount, const std::string& name, bool is_dll) const;
 		bool CheckFont(const std::wstring& name) const;
@@ -28,7 +27,6 @@ namespace mozjs
 		void DownloadFileAsync(const std::string& url, const std::wstring& path);
 		void EditTextFile(const std::wstring& path);
 		bool FileExists(const std::wstring& path) const;
-		// TODO v2: remove
 		JS::Value FileTest(const std::wstring& path, const std::wstring& mode);
 		std::string FormatDuration(double p) const;
 		std::string FormatFileSize(uint64_t p) const;
@@ -44,7 +42,6 @@ namespace mozjs
 		uint64_t GetFileSize(const std::wstring& path) const;
 		uint64_t GetLastModified(const std::wstring& path) const;
 		JSObject* GetPackageInfo(const std::string& packageId) const;
-		// TODO: remove in the next version (not necessarily v2)
 		std::wstring GetPackagePath(const std::string& packageId) const;
 		uint32_t GetSysColour(uint32_t index) const;
 		uint32_t GetSystemMetrics(uint32_t index) const;
@@ -78,7 +75,6 @@ namespace mozjs
 		bool WriteTextFile(const std::wstring& path, const std::string& content, bool write_bom = true);
 		bool WriteTextFileWithOpt(size_t optArgCount, const std::wstring& path, const std::string& content, bool write_bom);
 
-	public:
 		std::string get_Version() const;
 
 	private:
@@ -86,7 +82,6 @@ namespace mozjs
 
 		CDialogHtml::Options ParseHTMLOptions(JS::HandleValue options, wil::com_ptr<CDialogHtml::HostExternal>& host_external);
 
-	private:
 		JSContext* m_ctx{};
 	};
 }

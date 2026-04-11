@@ -31,7 +31,7 @@ namespace smp
 		isLoading_ = isLoading;
 		if (isLoading_)
 		{
-			StopAllTimeouts();
+			StopAll();
 		}
 		else
 		{
@@ -58,7 +58,7 @@ namespace smp
 		return CreateTimeout(delay, false, std::move(pJsTask));
 	}
 
-	void TimeoutManager::ClearTimeout(uint32_t timerId)
+	void TimeoutManager::ClearIntervalOrTimeout(uint32_t timerId)
 	{
 		auto timeoutIt = timeoutStorage_.Get(timerId);
 		if (timeoutStorage_.IsEnd(timeoutIt))
@@ -104,7 +104,7 @@ namespace smp
 		}
 	}
 
-	void TimeoutManager::StopAllTimeouts()
+	void TimeoutManager::StopAll()
 	{
 		pExecutor_->Cancel(true);
 		timeoutStorage_.Clear();

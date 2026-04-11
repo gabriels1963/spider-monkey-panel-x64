@@ -711,15 +711,14 @@ namespace mozjs
 		check_playlist(playlistIndex);
 
 		auto api = autoplaylist_manager::get();
-		if (!api->is_client_present(playlistIndex))
-		{ // TODO v2: replace with error
-			return false;
+
+		if (api->is_client_present(playlistIndex))
+		{
+			api->query_client(playlistIndex)->show_ui(playlistIndex);
+			return true;
 		}
 
-		autoplaylist_client_ptr client = api->query_client(playlistIndex);
-		client->show_ui(playlistIndex);
-
-		return true;
+		return false;
 	}
 
 	bool Plman::SortByFormat(uint32_t playlistIndex, const std::string& pattern, bool selOnly)

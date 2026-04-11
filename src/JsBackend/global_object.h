@@ -22,27 +22,19 @@ namespace mozjs
 
 		static JSObject* CreateNative(JSContext* ctx, JsContainer& parentContainer);
 		static JsGlobalObject* ExtractNative(JSContext* ctx, JS::HandleObject jsObject);
-
-	public:
-		void Fail(const std::string& errorText);
-
-		[[nodiscard]] GlobalHeapManager& GetHeapManager() const;
-
 		static void PrepareForGc(JSContext* ctx, JS::HandleObject self);
 
-	public: // methods
-		/// @remark HWND might be null, if called before fb2k initialization is completed
-		[[nodiscard]] HWND GetPanelHwnd() const;
-
-		void ClearInterval(uint32_t intervalId);
-		void ClearTimeout(uint32_t timeoutId);
-
-		void IncludeScript(const std::wstring& path, JS::HandleValue options = JS::UndefinedHandleValue);
-		void IncludeScriptWithOpt(size_t optArgCount, const std::wstring& path, JS::HandleValue options);
+		GlobalHeapManager& GetHeapManager() const;
+		HWND GetPanelHwnd() const;
 		uint32_t SetInterval(JS::HandleValue func, uint32_t delay, JS::HandleValueArray funcArgs = JS::HandleValueArray{ JS::UndefinedHandleValue });
 		uint32_t SetIntervalWithOpt(size_t optArgCount, JS::HandleValue func, uint32_t delay, JS::HandleValueArray funcArgs);
 		uint32_t SetTimeout(JS::HandleValue func, uint32_t delay, JS::HandleValueArray funcArgs);
 		uint32_t SetTimeoutWithOpt(size_t optArgCount, JS::HandleValue func, uint32_t delay, JS::HandleValueArray funcArgs);
+		void ClearInterval(uint32_t intervalId);
+		void ClearTimeout(uint32_t timeoutId);
+		void Fail(const std::string& errorText);
+		void IncludeScript(const std::wstring& path, JS::HandleValue options = JS::UndefinedHandleValue);
+		void IncludeScriptWithOpt(size_t optArgCount, const std::wstring& path, JS::HandleValue options);
 
 	private:
 		JsGlobalObject(JSContext* ctx, JsContainer& parentContainer, Window* pWindow);

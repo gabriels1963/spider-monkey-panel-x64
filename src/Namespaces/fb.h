@@ -16,7 +16,6 @@ namespace mozjs
 		static std::unique_ptr<Fb> CreateNative(JSContext* ctx);
 		uint32_t GetInternalSize();
 
-	public:
 		JSObject* AcquireUiSelectionHolder();
 		void AddDirectory();
 		void AddFiles();
@@ -25,7 +24,6 @@ namespace mozjs
 		void ClearPlaylist();
 		bool CopyHandleListToClipboard(JsFbMetadbHandleList* handles);
 		JSObject* CreateContextMenuManager();
-		// TODO v2: remove
 		JSObject* CreateHandleList();
 		JSObject* CreateMainMenuManager();
 		JSObject* CreateProfiler(const std::string& name = "");
@@ -84,7 +82,6 @@ namespace mozjs
 		void VolumeMute();
 		void VolumeUp();
 
-	public:
 		bool get_AlwaysOnTop();
 		std::wstring get_ComponentPath();
 		bool get_CursorFollowPlayback();
@@ -120,7 +117,6 @@ namespace mozjs
 
 		DoDragDropOptions ParseDoDragDropOptions(JS::HandleValue options);
 
-	private:
 		JSContext* m_ctx{};
 		visualisation_stream_v2::ptr vis_;
 	};

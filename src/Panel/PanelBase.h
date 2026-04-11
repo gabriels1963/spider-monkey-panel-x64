@@ -5,14 +5,13 @@
 #include <Config/parsed_panel_config.h>
 #include <JsBackend/Events/event.h>
 #include <Interfaces/fb_tooltip.h>
+#include <JsBackend/Timeout/timeout_manager.h>
 #include <UI/Config/ui_conf.h>
 
 class IDropTargetImpl;
 
 namespace smp
 {
-	class TimeoutManager;
-
 	class PanelBase : public ui_config_callback_impl
 	{
 	public:

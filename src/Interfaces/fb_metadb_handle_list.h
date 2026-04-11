@@ -42,7 +42,6 @@ namespace mozjs
 		double CalcTotalDuration();
 		uint64_t CalcTotalSize();
 		JSObject* Clone();
-		// TODO v2: rename to ToArray()
 		JS::Value Convert();
 		int32_t Find(JsFbMetadbHandle* handle);
 		JSObject* GetLibraryRelativePaths();
