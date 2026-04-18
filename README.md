@@ -6,7 +6,7 @@ Docs: https://theqwertiest.github.io/foo_spider_monkey_panel/assets/generated_fi
 
 License: https://github.com/marc2k3/spider-monkey-panel-x64/blob/main/LICENSE.md
 
-Third party licenses: https://github.com/marc2k3/spider-monkey-panel-x64/tree/main/component/licenses
+Third party licenses: https://github.com/marc2k3/spider-monkey-panel-x64/tree/main/dist/licenses
 
 ## Requirements
 As per the repository name, only 64bit foobar2000 is supported.
