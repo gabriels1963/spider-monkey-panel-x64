@@ -205,7 +205,7 @@ function _formatNumber(number, separator) {
 }
 
 function _gdiFont(name, size, style) {
-	return gdi.Font(name, _scale(size), style);
+	return gdi.Font(name, _scale(size), style || 0);
 }
 
 function _getElementsByTagName(value, tag) {
