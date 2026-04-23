@@ -1,5 +1,12 @@
 For new methods/callbacks, see the [API](./docs/api.md) page.
 
+## 1.8.26.4.23
+- The component is now built with `Visual Studio 2026` and therefore `Windows 10`
+is the new minimum requirement.
+- Strict number checks are now enforced everywhere. Previously, some functions
+would silently accept `null`, `undefined`, `NaN` or `Infinity` which is plain wrong. Script
+errors will now be thrown.
+
 ## 1.7.26.4.5
 - `utils.HTTPRequestAsync` now supports `http/2`.
 - The `Scintilla` library used for code highlighting has been updated to the latest version.
