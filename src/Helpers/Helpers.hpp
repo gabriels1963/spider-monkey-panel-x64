@@ -1,5 +1,8 @@
 #pragma once
 
+template <typename T>
+concept IsNum = std::integral<T> || std::floating_point<T>;
+
 template <std::integral T>
 static auto indices(T to)
 {

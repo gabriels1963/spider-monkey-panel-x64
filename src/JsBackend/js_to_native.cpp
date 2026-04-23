@@ -10,7 +10,7 @@ namespace mozjs::convert::to_native
 			QwrException::ExpectTrue(jsValue.isNumber(), "jsValue not a number");
 		}
 
-		void check_num(auto num)
+		void check_num(IsNum auto num)
 		{
 			QwrException::ExpectTrue(!std::isnan(num) && !std::isinf(num), "Infinity/NaN error");
 		}
