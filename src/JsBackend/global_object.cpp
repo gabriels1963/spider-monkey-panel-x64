@@ -231,14 +231,24 @@ namespace mozjs
 		return m_window->GetHwnd();
 	}
 
-	void JsGlobalObject::ClearInterval(uint32_t intervalId)
+	void JsGlobalObject::ClearInterval(JS::HandleValue intervalId)
 	{
-		m_parent_container.GetParentPanel().GetTimeoutManager().ClearIntervalOrTimeout(intervalId);
+		uint32_t num{};
+
+		if (JS::ToUint32(m_ctx, intervalId, &num))
+		{
+			m_parent_container.GetParentPanel().GetTimeoutManager().ClearIntervalOrTimeout(num);
+		}
 	}
 
-	void JsGlobalObject::ClearTimeout(uint32_t timeoutId)
+	void JsGlobalObject::ClearTimeout(JS::HandleValue timeoutId)
 	{
-		m_parent_container.GetParentPanel().GetTimeoutManager().ClearIntervalOrTimeout(timeoutId);
+		uint32_t num{};
+
+		if (JS::ToUint32(m_ctx, timeoutId, &num))
+		{
+			m_parent_container.GetParentPanel().GetTimeoutManager().ClearIntervalOrTimeout(num);
+		}
 	}
 
 	void JsGlobalObject::IncludeScript(const std::wstring& path, JS::HandleValue options)

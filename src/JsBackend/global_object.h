@@ -30,8 +30,8 @@ namespace mozjs
 		uint32_t SetIntervalWithOpt(size_t optArgCount, JS::HandleValue func, uint32_t delay, JS::HandleValueArray funcArgs);
 		uint32_t SetTimeout(JS::HandleValue func, uint32_t delay, JS::HandleValueArray funcArgs);
 		uint32_t SetTimeoutWithOpt(size_t optArgCount, JS::HandleValue func, uint32_t delay, JS::HandleValueArray funcArgs);
-		void ClearInterval(uint32_t intervalId);
-		void ClearTimeout(uint32_t timeoutId);
+		void ClearInterval(JS::HandleValue intervalId);
+		void ClearTimeout(JS::HandleValue timeoutId);
 		void Fail(const std::string& errorText);
 		void IncludeScript(const std::wstring& path, JS::HandleValue options = JS::UndefinedHandleValue);
 		void IncludeScriptWithOpt(size_t optArgCount, const std::wstring& path, JS::HandleValue options);
