@@ -1,5 +1,10 @@
 For new methods/callbacks, see the [API](./docs/api.md) page.
 
+## 1.8.26.4.23.1
+- As a follow up to the strict number checking enforced in the previous relese, this makes a
+special exception for `clearInterval` and `clearTimeout` so the supplied `id`
+does not have to be a valid number.
+
 ## 1.8.26.4.23
 - The component is now built with `Visual Studio 2026` and therefore `Windows 10`
 is the new minimum requirement.
